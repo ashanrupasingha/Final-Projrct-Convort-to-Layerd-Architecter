@@ -1,0 +1,5 @@
+package lk.ijse.finalProject.controller.Util;
+
+public enum TextFeld {
+    txtusername,txtusermane,txtPassword,txtReEnterPassword,txtcustomerid,txtAddress,txttelephone,CustomerName,txtEmployeerid,txtEmployeeName,txtemployeetelephone,txtemployeeAddress,txtpartqty,txtpartname,txtpartid,txtpartqty1,txtvehicleid,txtpvehiclemodel,txtvihicletnumber,txtserviceAmount,txtservicerid,txtservicePackage,txtsupplierrid,txtsupplierName,txtsuppliertel,txtorderqty,txtorderdiscription,txtCustomer_vehicle_id,txtVehicleNumber,txtVehicleQty,
+}

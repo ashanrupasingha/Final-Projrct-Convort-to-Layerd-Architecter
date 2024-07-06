@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="rootnode" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="819.0" prefWidth="918.0" style="-fx-background-color: F1F1F1;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.finalProject.controller.SettingPageController">
+   <children>
+      <JFXButton layoutX="68.0" layoutY="54.0" onAction="#logoutAction" prefHeight="54.0" prefWidth="112.0" style="-fx-background-color: gray;" text="Log out" />
+   </children>
+</AnchorPane>

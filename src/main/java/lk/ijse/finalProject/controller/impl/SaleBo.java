@@ -1,0 +1,17 @@
+package lk.ijse.finalProject.controller.impl;
+
+import lk.ijse.finalProject.model.DTO.VehicleDTO;
+import lk.ijse.finalProject.model.DTO.VehicleDTO;
+
+import java.sql.SQLException;
+import java.util.List;
+
+public interface SaleBo {
+
+    boolean updateCustomer(VehicleDTO customer) throws SQLException, ClassNotFoundException;
+    boolean saveCustomer(VehicleDTO customer) throws SQLException, ClassNotFoundException;
+    boolean deleteCustomer(String id) throws SQLException, ClassNotFoundException;
+    public VehicleDTO searchById(String newValue) throws SQLException, ClassNotFoundException ;
+    public String getCurrentId() throws SQLException, ClassNotFoundException;
+    public List<VehicleDTO> getAll() throws SQLException, ClassNotFoundException;
+}

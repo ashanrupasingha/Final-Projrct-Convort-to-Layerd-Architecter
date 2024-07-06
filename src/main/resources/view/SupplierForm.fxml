@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="819.0" prefWidth="918.0" style="-fx-background-color: F1F1F1;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.finalProject.controller.SupplierPageController">
+   <children>
+      <AnchorPane layoutX="13.0" layoutY="44.0" prefHeight="214.0" prefWidth="892.0" style="-fx-background-radius: 20; -fx-background-color: FFC94A;" />
+      <Text layoutX="36.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Code   ">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Text>
+      <TextField fx:id="txtsupplierrid" layoutX="36.0" layoutY="119.0" onAction="#txtValueFillOnAction" prefHeight="32.0" prefWidth="185.0" />
+      <TextField fx:id="txtsupplierName" layoutX="357.0" layoutY="119.0" onKeyReleased="#txtSupplierNameOnKeyReleased" prefHeight="32.0" prefWidth="185.0" />
+      <Text layoutX="357.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Supplier Name">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Text>
+      <TextField fx:id="txtsuppliertel" layoutX="676.0" layoutY="119.0" onKeyReleased="#txtSupplierTelephoneOnKeyReleased" prefHeight="32.0" prefWidth="185.0" />
+      <Text layoutX="676.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Telephone">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Text>
+      <JFXButton layoutX="107.0" layoutY="287.0" onAction="#btnDeleteOnAction" prefHeight="54.0" prefWidth="88.0" style="-fx-background-color: lightgray;" text="Delete" />
+      <JFXButton layoutX="269.0" layoutY="287.0" onAction="#btnupdateOnAction" prefHeight="54.0" prefWidth="88.0" style="-fx-background-color: lightgray;" text="Update" />
+      <JFXButton layoutX="450.0" layoutY="287.0" onAction="#btnClearOnActioN" prefHeight="54.0" prefWidth="88.0" style="-fx-background-color: lightgray;" text="Clear" />
+      <JFXButton layoutX="613.0" layoutY="287.0" onAction="#saveAction" prefHeight="54.0" prefWidth="88.0" style="-fx-background-color: #F8EFBA;" text="Save" />
+      <TableView fx:id="tblSupplierView" layoutY="614.0" prefHeight="205.0" prefWidth="918.0">
+         <columns>
+            <TableColumn fx:id="clmsupplierId" prefWidth="306.0" text="Supplier ID" />
+            <TableColumn fx:id="clmsuppliernamw" minWidth="0.0" prefWidth="271.0" text="Supplier Name" />
+            <TableColumn fx:id="clmtelephone" prefWidth="340.0" text="Telephone" />
+         </columns>
+      </TableView>
+   </children>
+</AnchorPane>

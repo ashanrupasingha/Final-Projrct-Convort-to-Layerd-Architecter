@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="rootNode" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.finalProject.controller.LoginFormController">
+   <children>
+      <ImageView fitHeight="500.0" fitWidth="670.0">
+         <image>
+            <Image url="@../pictures/HD-wallpaper-things-to-keep-in-mind-when-finding-an-auto-repair-shop-shelor-motor-mile-car-dealer.jpg" />
+         </image>
+      </ImageView>
+      <JFXButton layoutX="216.0" layoutY="343.0" onAction="#loginOnAction" prefHeight="29.0" prefWidth="192.0" style="-fx-background-color: #ffeaa7; -fx-background-radius: 200;" text="Login">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </JFXButton>
+      <Text fill="#ffeaa7" layoutX="244.0" layoutY="155.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome !" wrappingWidth="135.06689453125">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Text>
+      <TextField fx:id="txtusername" layoutX="183.0" layoutY="177.0" onAction="#usernameAction" prefHeight="29.0" prefWidth="257.0" promptText="username" />
+      <JFXButton layoutX="364.0" layoutY="284.0" onAction="#btnsingUp" text="Sing up" textFill="#ffeaa7">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <Text fill="#ffeaa7" layoutX="169.0" layoutY="307.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Haven't an account?" wrappingWidth="177.06689453125">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Text>
+      <PasswordField fx:id="txtpassword" layoutX="184.0" layoutY="255.0" onAction="#passwordonAction" prefHeight="29.0" prefWidth="257.0" promptText="password" />
+   </children>
+</AnchorPane>

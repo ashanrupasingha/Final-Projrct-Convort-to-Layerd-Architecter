@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="819.0" prefWidth="918.0" style="-fx-background-color: F1F1F1;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.finalProject.controller.CustomerPageController">
+   <children>
+      <AnchorPane layoutX="12.0" layoutY="102.0" prefHeight="214.0" prefWidth="892.0" style="-fx-background-radius: 20; -fx-background-color: FFC94A;" />
+      <TextField fx:id="txtcustomerid" layoutX="26.0" layoutY="151.0" onAction="#txtValueFillOnAction" onKeyReleased="#txtCustomerIDOnKeyReleased" prefHeight="32.0" prefWidth="185.0" />
+      <TextField fx:id="txtCustomerName" layoutX="345.0" layoutY="151.0" onKeyReleased="#txtCustomerNameOnKeyReleased" prefHeight="32.0" prefWidth="185.0" />
+      <TextField fx:id="txttelephone" layoutX="669.0" layoutY="151.0" onKeyReleased="#txtCustomeeTelephoneOnKeyReleased" prefHeight="32.0" prefWidth="185.0" />
+      <TextField fx:id="txtAddress" layoutX="345.0" layoutY="251.0" onKeyReleased="#txtCustomerAddressOnKeyReleased" prefHeight="32.0" prefWidth="185.0" />
+      <TableView fx:id="tblCustomerView" layoutY="608.0" prefHeight="205.0" prefWidth="918.0" style="-fx-background-color: #d1d8e0;">
+         <columns>
+            <TableColumn fx:id="clmCusId" prefWidth="179.0" text="Customer ID" />
+            <TableColumn fx:id="clmName" minWidth="0.0" prefWidth="241.0" text="Name" />
+            <TableColumn fx:id="clmAddress" prefWidth="215.0" text="Address" />
+            <TableColumn fx:id="clmPhone" prefWidth="282.0" text="Phone" />
+         </columns>
+      </TableView>
+      <Text layoutX="26.0" layoutY="146.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Code   ">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Text>
+      <Text layoutX="345.0" layoutY="146.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer  Name">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Text>
+      <Text layoutX="669.0" layoutY="146.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Telephone">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Text>
+      <Text layoutX="345.0" layoutY="247.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Text>
+      <JFXButton layoutX="581.0" layoutY="424.0" onAction="#saveAction" prefHeight="54.0" prefWidth="88.0" style="-fx-background-color: #F8EFBA;" text="Save" />
+      <JFXButton layoutX="394.0" layoutY="424.0" onAction="#btnClearOnAction" prefHeight="54.0" prefWidth="88.0" style="-fx-background-color: lightgray;" text="Clear" />
+      <JFXButton layoutX="234.0" layoutY="424.0" onAction="#btnupdateOnAction" prefHeight="54.0" prefWidth="88.0" style="-fx-background-color: lightgray;" text="Update" />
+      <JFXButton layoutX="69.0" layoutY="424.0" onAction="#btnDeleteOnAction" prefHeight="54.0" prefWidth="88.0" style="-fx-background-color: lightgray;" text="Delete" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="rootNodE" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="819.0" prefWidth="918.0" style="-fx-background-color: F1F1F1;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.finalProject.controller.OrderPageController">
+   <children>
+      <AnchorPane layoutX="16.0" layoutY="66.0" prefHeight="214.0" prefWidth="892.0" style="-fx-background-radius: 20; -fx-background-color: FFC94A;" />
+      <Text layoutX="36.0" layoutY="138.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" Order Code   ">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Text>
+      <TextField fx:id="txtOrderid" layoutX="36.0" layoutY="141.0" onAction="#txtValueFillOnAction" prefHeight="32.0" prefWidth="185.0" />
+      <TextField fx:id="txtorderqty" layoutX="662.0" layoutY="141.0" onKeyReleased="#txtOrderqtyOnKeyReleased" prefHeight="32.0" prefWidth="185.0" />
+      <Text layoutX="662.0" layoutY="138.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Order Qty">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Text>
+      <TextField fx:id="txtorderdiscription" layoutX="331.0" layoutY="141.0" onKeyReleased="#txtOrderDisOnKeyReleased" prefHeight="32.0" prefWidth="185.0" />
+      <Text layoutX="331.0" layoutY="138.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Order Description">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Text>
+      <JFXButton layoutX="110.0" layoutY="298.0" onAction="#btnDeleteOnAction" prefHeight="54.0" prefWidth="88.0" style="-fx-background-color: lightgray;" text="Delete" />
+      <JFXButton layoutX="268.0" layoutY="298.0" onAction="#btnupdateOnAction" prefHeight="54.0" prefWidth="88.0" style="-fx-background-color: lightgray;" text="Update" />
+      <JFXButton layoutX="450.0" layoutY="298.0" onAction="#btnClearOnActioN" prefHeight="54.0" prefWidth="88.0" style="-fx-background-color: lightgray;" text="Clear" />
+      <JFXButton layoutX="618.0" layoutY="298.0" onAction="#saveAction" prefHeight="54.0" prefWidth="88.0" style="-fx-background-color: #F8EFBA;" text="Save" />
+      <TableView fx:id="tblOrderView" layoutY="614.0" prefHeight="205.0" prefWidth="918.0">
+         <columns>
+            <TableColumn fx:id="clmorderId" prefWidth="154.0" text="Order Code" />
+            <TableColumn fx:id="clmorderdiscription" minWidth="0.0" prefWidth="189.0" text="Order Description" />
+            <TableColumn fx:id="clmorderqty" prefWidth="193.0" text="Order Qty" />
+            <TableColumn fx:id="clmCustomerCode" prefWidth="192.0" text="Customer Code" />
+            <TableColumn fx:id="clmvehicleCode" prefWidth="189.0" text="Vehicle Code" />
+         </columns>
+      </TableView>
+      <Text layoutX="36.0" layoutY="218.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer Code">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Text>
+      <Text layoutX="330.0" layoutY="218.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vehicle Code">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Text>
+      <JFXComboBox fx:id="comboCusId" layoutX="36.0" layoutY="225.0" prefHeight="24.0" prefWidth="185.0" promptText="Customer ID" />
+      <JFXComboBox fx:id="comboVehicleId" layoutX="332.0" layoutY="225.0" prefHeight="24.0" prefWidth="185.0" promptText="Vehicle ID" />
+   </children>
+</AnchorPane>

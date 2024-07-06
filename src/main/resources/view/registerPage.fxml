@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #1C1678;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.finalProject.controller.RegisterPageController">
+   <children>
+      <ImageView fitHeight="500.0" fitWidth="670.0">
+         <image>
+            <Image url="@../pictures/lovepik-car-sales-staff-introduce-cars-picture_500676952.jpg" />
+         </image>
+      </ImageView>
+      <TextField fx:id="txtPassword" layoutX="175.0" layoutY="188.0" onKeyReleased="#txtpasswordDOnKeyReleased" prefHeight="32.0" prefWidth="321.0" promptText="password" />
+      <JFXButton layoutX="304.0" layoutY="324.0" onAction="#registeractionon" prefHeight="24.0" prefWidth="88.0" style="-fx-background-color: #ffeaa7; -fx-background-radius: 200;" text="Register" />
+      <Text fill="WHITE" layoutX="254.0" layoutY="129.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-blend-mode: white;" text="Hi Customer !" wrappingWidth="162.36083984375">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="175.0" layoutY="386.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-blend-mode: white;" text="Already have an account ?" wrappingWidth="196.36083984375">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Text>
+      <Hyperlink layoutX="371.0" layoutY="371.0" onAction="#btnsinginaction" text="Sing in" textFill="#ffeaa7">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Hyperlink>
+      <Text fill="WHITE" layoutX="188.0" layoutY="287.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-blend-mode: white;" text="I've read and aggre to " wrappingWidth="162.36083984375">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Text>
+      <Text fill="#ffeaa7" layoutX="348.0" layoutY="287.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-blend-mode: white;" text="Terms &amp; Conditions" wrappingWidth="136.36083984375">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Text>
+      <TextField fx:id="txtReEnterPassword" layoutX="175.0" layoutY="234.0" onKeyReleased="#txtpasswordretypeOnKeyReleased" prefHeight="32.0" prefWidth="321.0" promptText="re-enter password" />
+      <TextField fx:id="txtusermane" layoutX="175.0" layoutY="142.0" onKeyReleased="#txtCustomerIDOnKeyReleased" prefHeight="32.0" prefWidth="321.0" promptText="Username" />
+   </children>
+</AnchorPane>

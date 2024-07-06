@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="ParstPage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="819.0" prefWidth="918.0" style="-fx-background-color: #F1F1F1;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.finalProject.controller.PartsPageController">
+   <children>
+      <AnchorPane layoutX="13.0" layoutY="52.0" prefHeight="214.0" prefWidth="892.0" style="-fx-background-radius: 20; -fx-background-color: FFC94A;" />
+      <TextField fx:id="txtpartid" layoutX="60.0" layoutY="109.0" onAction="#enretOnAction" prefHeight="32.0" prefWidth="185.0" />
+      <Text layoutX="64.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Code   ">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Text>
+      <TextField fx:id="txtpartname" layoutX="339.0" layoutY="105.0" onKeyReleased="#txtPartNameOnKeyReleased" prefHeight="32.0" prefWidth="185.0" />
+      <Text layoutX="341.0" layoutY="97.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Part Name">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Text>
+      <TextField fx:id="txtpartqty" layoutX="638.0" layoutY="105.0" onKeyReleased="#txtPartqtyOnKeyReleased" prefHeight="32.0" prefWidth="185.0" />
+      <Text layoutX="638.0" layoutY="97.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Part Qty">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Text>
+      <JFXButton layoutX="98.0" layoutY="272.0" onAction="#btndeleteOnAction" prefHeight="54.0" prefWidth="88.0" style="-fx-background-color: lightgray;" text="Delete" />
+      <JFXButton layoutX="284.0" layoutY="272.0" onAction="#UpdatesOnAction" prefHeight="54.0" prefWidth="88.0" style="-fx-background-color: lightgray;" text="Update" />
+      <JFXButton layoutX="463.0" layoutY="272.0" onAction="#ClearOnAction" prefHeight="54.0" prefWidth="88.0" style="-fx-background-color: lightgray;" text="Clear" />
+      <JFXButton fx:id="saveid" layoutX="638.0" layoutY="272.0" onAction="#SaveOnAction" prefHeight="54.0" prefWidth="88.0" style="-fx-background-color: #F8EFBA;" text="Save" />
+      <TableView fx:id="tblpart" layoutX="4.0" layoutY="621.0" prefHeight="198.0" prefWidth="918.0">
+         <columns>
+            <TableColumn fx:id="Clmitem" prefWidth="157.0" text="Parts ID" />
+            <TableColumn fx:id="ClmPrice" minWidth="0.0" prefWidth="179.0" text="Part Name" />
+            <TableColumn fx:id="ClmQty" prefWidth="163.0" text="Part Qty" />
+            <TableColumn fx:id="ClmTotal" prefWidth="152.0" text="Supplier ID" />
+            <TableColumn fx:id="Clmprice1" prefWidth="265.0" text="Price" />
+         </columns>
+      </TableView>
+      <JFXComboBox fx:id="SupplierId" layoutX="339.0" layoutY="190.0" prefHeight="32.0" prefWidth="185.0" promptText="Service ID" style="-fx-background-color: white;" />
+      <TextField fx:id="txtpartqty1" layoutX="60.0" layoutY="190.0" onKeyReleased="#txtpriceeOnKeyReleased" prefHeight="32.0" prefWidth="185.0" />
+      <Text layoutX="61.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Price">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Text>
+      <Text layoutX="341.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Service ID">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

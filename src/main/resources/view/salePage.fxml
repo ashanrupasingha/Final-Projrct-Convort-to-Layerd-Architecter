@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="salePage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="819.0" prefWidth="918.0" style="-fx-background-color: #F1F1F1;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.finalProject.controller.SalePageController">
+   <children>
+      <AnchorPane layoutX="13.0" layoutY="42.0" prefHeight="214.0" prefWidth="892.0" style="-fx-background-radius: 20; -fx-background-color: FFC94A;" />
+      <TextField fx:id="txtvehicleid" layoutX="20.0" layoutY="117.0" onAction="#enretOnAction" prefHeight="32.0" prefWidth="185.0" />
+      <Text layoutX="20.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Code   ">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Text>
+      <TextField fx:id="txtpvehiclemodel" layoutX="332.0" layoutY="117.0" onKeyReleased="#txtVehicleModelOnKeyReleased" prefHeight="32.0" prefWidth="185.0" />
+      <TextField fx:id="txtvihicletnumber" layoutX="677.0" layoutY="117.0" onKeyReleased="#txtVehicleNumberOnKeyReleased" prefHeight="32.0" prefWidth="185.0" />
+      <JFXButton layoutX="80.0" layoutY="272.0" onAction="#btndeleteOnAction" prefHeight="54.0" prefWidth="88.0" style="-fx-background-color: lightgray;" text="Delete" />
+      <JFXButton layoutX="300.0" layoutY="272.0" onAction="#UpdatesOnAction" prefHeight="54.0" prefWidth="88.0" style="-fx-background-color: lightgray;" text="Update" />
+      <JFXButton layoutX="486.0" layoutY="272.0" onAction="#ClearOnAction" prefHeight="54.0" prefWidth="88.0" style="-fx-background-color: lightgray;" text="Clear" />
+      <TableView fx:id="tbl" layoutY="621.0" prefHeight="198.0" prefWidth="918.0">
+         <columns>
+            <TableColumn fx:id="ClmCode" prefWidth="150.0" text="Vehicle ID" />
+            <TableColumn fx:id="ClmModel" minWidth="0.0" prefWidth="173.0" text="Vehicle Model" />
+            <TableColumn fx:id="Clmnumber" minWidth="4.0" prefWidth="192.0" text="Vehicle Number" />
+            <TableColumn fx:id="ClmSupplier" prefWidth="250.0" text="Supplier ID" />
+            <TableColumn fx:id="clmQty" prefWidth="152.0" text="QTY" />
+         </columns>
+      </TableView>
+      <Text layoutX="329.0" layoutY="114.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vehicle Model">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Text>
+      <Text layoutX="677.0" layoutY="114.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vehicle Number">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Text>
+      <JFXButton fx:id="saveid" layoutX="677.0" layoutY="272.0" onAction="#SaveOnAction" prefHeight="54.0" prefWidth="88.0" style="-fx-background-color: #F8EFBA;" text="Save" />
+      <JFXComboBox fx:id="comboSupplierId" layoutX="20.0" layoutY="190.0" prefHeight="26.0" prefWidth="185.0" promptText="Service ID" style="-fx-background-color: white;" />
+      <TextField fx:id="txtVehicleQty" layoutX="332.0" layoutY="187.0" onKeyReleased="#txtQtyKeyReleased" prefHeight="32.0" prefWidth="185.0" />
+      <Text layoutX="332.0" layoutY="182.0" strokeType="OUTSIDE" strokeWidth="0.0" text="qty">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Text>
+      <Text layoutX="20.0" layoutY="190.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Service ID">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

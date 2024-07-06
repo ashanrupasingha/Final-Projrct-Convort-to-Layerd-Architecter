@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.TextFlow?>
+
+<BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="813.0" prefWidth="1117.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.finalProject.controller.HomePageController">
+   <left>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <AnchorPane layoutX="1.0" prefHeight="813.0" prefWidth="199.0" style="-fx-background-color: #ffeaa7;">
+               <children>
+                  <Text layoutX="8.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Millennium Auto Traders " wrappingWidth="186.97802734375">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Text>
+                  <JFXButton buttonType="RAISED" layoutY="89.0" onAction="#btnDashbordAction" prefHeight="60.0" prefWidth="195.0" ripplerFill="#6c5ce7" style="-fx-background-color: #ffeaa7;" text="DashBoard" textFill="#6c5ce7">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font></JFXButton>
+                  <JFXButton buttonType="RAISED" layoutY="753.0" onAction="#btnSettingPageOnAction" prefHeight="60.0" prefWidth="195.0" style="-fx-background-color: #ffeaa7;" text="Settings" textFill="#6c5ce7">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font></JFXButton>
+                  <JFXButton buttonType="RAISED" layoutY="290.0" onAction="#btnSalePageOnAction" prefHeight="60.0" prefWidth="195.0" style="-fx-background-color: #ffeaa7;" text="Sale" textFill="#6c5ce7">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font></JFXButton>
+                  <JFXButton buttonType="RAISED" layoutY="357.0" onAction="#btnPartspageOnAction" prefHeight="60.0" prefWidth="195.0" style="-fx-background-color: #ffeaa7;" text="Parts" textFill="#6c5ce7">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font></JFXButton>
+                  <JFXButton buttonType="RAISED" layoutY="423.0" onAction="#btnServicePageOnAction" prefHeight="60.0" prefWidth="195.0" style="-fx-background-color: #ffeaa7;" text="Service Package" textFill="#6c5ce7">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font></JFXButton>
+                  <JFXButton buttonType="RAISED" layoutY="223.0" onAction="#CustomerAction" prefHeight="60.0" prefWidth="195.0" style="-fx-background-color: #ffeaa7;" text="Customer" textFill="#6c5ce7">
+                     <font>
+                        <Font name="System Bold Italic" size="13.0" />
+                     </font></JFXButton>
+                  <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="15.0" layoutY="241.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icon/icons8-customer-50(1).png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="15.0" layoutY="375.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icon/icons8-rotating-parts-hazard-100.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="15.0" layoutY="308.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icon/icons8-total-sales-32.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="16.0" layoutY="771.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="17.0">
+                     <image>
+                        <Image url="@../icon/icons8-setting-50.png" />
+                     </image>
+                  </ImageView>
+                  <JFXButton buttonType="RAISED" layoutY="555.0" onAction="#EmployeeAction" prefHeight="60.0" prefWidth="195.0" style="-fx-background-color: #ffeaa7;" text="Employee" textFill="#6c5ce7">
+                     <font>
+                        <Font name="System Bold Italic" size="13.0" />
+                     </font></JFXButton>
+                  <JFXButton buttonType="RAISED" layoutY="489.0" onAction="#SupplierAction" prefHeight="60.0" prefWidth="195.0" style="-fx-background-color: #ffeaa7;" text="Supplier" textFill="#6c5ce7">
+                     <font>
+                        <Font name="System Bold Italic" size="13.0" />
+                     </font></JFXButton>
+                  <JFXButton buttonType="RAISED" layoutY="621.0" onAction="#OrderAction" prefHeight="60.0" prefWidth="195.0" style="-fx-background-color: #ffeaa7;" text="Order" textFill="#6c5ce7">
+                     <font>
+                        <Font name="System Bold Italic" size="13.0" />
+                     </font></JFXButton>
+                  <ImageView fitHeight="30.0" fitWidth="32.0" layoutX="12.0" layoutY="636.0">
+                     <image>
+                        <Image url="@../icon/order.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView layoutX="48.0" layoutY="21.0">
+                     <image>
+                        <Image url="@../icon/logo6.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="33.0" fitWidth="31.0" layoutX="2.0" layoutY="432.0">
+                     <image>
+                        <Image url="@../icon/icons8-service-50.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="39.0" fitWidth="41.0" layoutX="8.0" layoutY="566.0">
+                     <image>
+                        <Image url="@../icon/icons8-employee-50.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="35.0" fitWidth="36.0" layoutX="11.0" layoutY="502.0">
+                     <image>
+                        <Image url="@../icon/icons8-supplier-50.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView layoutX="17.0" layoutY="108.0">
+                     <image>
+                        <Image url="@../icon/icons8-homepage-24.png" />
+                     </image>
+                  </ImageView>
+                  <JFXButton buttonType="RAISED" layoutY="687.0" onAction="#PlaceServiceAction" prefHeight="60.0" prefWidth="195.0" style="-fx-background-color: #ffeaa7;" text="Place Service" textFill="#6c5ce7">
+                     <font>
+                        <Font name="System Bold Italic" size="13.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton buttonType="RAISED" layoutY="156.0" onAction="#btnCustomersvehicleOnAction" prefHeight="60.0" prefWidth="195.0" ripplerFill="#6c5ce7" style="-fx-background-color: #ffeaa7;" text="Customer Vehicle" textFill="#6c5ce7">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </JFXButton>
+                  <ImageView fitHeight="26.0" fitWidth="27.0" layoutX="4.0" layoutY="173.0">
+                     <image>
+                        <Image url="@../icon/icons8-vehicle-insurance-48.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView layoutX="13.0" layoutY="701.0">
+                     <image>
+                        <Image url="@../icon/icons8-purchase-order-32.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </left>
+   <right>
+      <AnchorPane fx:id="rootNode" prefHeight="813.0" prefWidth="917.0" style="-fx-background-color: F1F1F1;" BorderPane.alignment="CENTER">
+         <children>
+            <TextFlow layoutX="72.0" layoutY="728.0" prefHeight="39.0" prefWidth="34.0" style="-fx-background-color: #ffeaa7;" />
+            <Text layoutX="65.0" layoutY="711.0" strokeType="OUTSIDE" strokeWidth="0.0" text="car sale">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Text>
+            <BarChart fx:id="Barchart" layoutX="30.0" layoutY="317.0" prefHeight="332.0" prefWidth="410.0">
+              <xAxis>
+                <CategoryAxis side="BOTTOM" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis side="LEFT" />
+              </yAxis>
+            </BarChart>
+            <TextField layoutX="640.0" layoutY="33.0" prefHeight="40.0" prefWidth="219.0" promptText="Search" style="-fx-background-radius: 200;" />
+            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="823.0" layoutY="41.0">
+               <image>
+                  <Image url="@../icon/search.png" />
+               </image>
+            </ImageView>
+            <PieChart fx:id="pieChart" layoutX="492.0" layoutY="326.0" prefHeight="323.0" prefWidth="379.0" />
+            <Label fx:id="lblCareSale" layoutX="82.0" layoutY="737.0" text="Label">
+               <font>
+                  <Font size="16.0" />
+               </font></Label>
+            <Label fx:id="lblDate" layoutX="56.0" layoutY="43.0" text="Label">
+               <font>
+                  <Font size="16.0" />
+               </font></Label>
+            <ImageView fitHeight="28.0" fitWidth="32.0" layoutX="859.0" layoutY="39.0">
+               <image>
+                  <Image url="@../icon/login%20animation%20photto.gif" />
+               </image>
+            </ImageView>
+            <AnchorPane layoutX="65.0" layoutY="111.0" prefHeight="177.0" prefWidth="200.0" style="-fx-background-color: #ffeaa7; -fx-background-radius: 20; -fx-border-radius: black;">
+               <effect>
+                  <DropShadow offsetX="5.0">
+                     <color>
+                        <Color red="0.4470588266849518" green="0.4313725531101227" blue="0.4313725531101227" />
+                     </color>
+                  </DropShadow>
+               </effect>
+               <children>
+                  <Label fx:id="customersvehiclelable" layoutX="90.0" layoutY="76.0" text="Label">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Text layoutX="29.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Onwers Vehicles" wrappingWidth="142.408203125">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="340.0" layoutY="110.0" prefHeight="179.0" prefWidth="200.0" style="-fx-background-color: #6c5ce7; -fx-background-radius: 20; -fx-border-radius: black;">
+               <effect>
+                  <DropShadow offsetX="5.0">
+                     <color>
+                        <Color red="0.4470588266849518" green="0.4313725531101227" blue="0.4313725531101227" />
+                     </color>
+                  </DropShadow>
+               </effect>
+               <children>
+                  <Label fx:id="partlabel" layoutX="88.0" layoutY="77.0" text="Label">
+                     <font>
+                        <Font size="20.0" />
+                     </font></Label>
+                  <Text layoutX="57.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Part Count's" wrappingWidth="115.3984375">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="623.0" layoutY="111.0" prefHeight="182.0" prefWidth="200.0" style="-fx-background-color: #eb3b5a; -fx-background-radius: 20; -fx-border-radius: black;">
+               <effect>
+                  <DropShadow offsetX="5.0">
+                     <color>
+                        <Color red="0.4470588266849518" green="0.4313725531101227" blue="0.4313725531101227" />
+                     </color>
+                  </DropShadow>
+               </effect>
+               <children>
+                  <Label fx:id="orderslabel" layoutX="92.0" layoutY="79.0" text="Label">
+                     <font>
+                        <Font size="20.0" />
+                     </font></Label>
+                  <Text layoutX="50.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Today Order" wrappingWidth="119.3984375">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+         </children>
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
+      </AnchorPane>
+   </right>
+</BorderPane>
