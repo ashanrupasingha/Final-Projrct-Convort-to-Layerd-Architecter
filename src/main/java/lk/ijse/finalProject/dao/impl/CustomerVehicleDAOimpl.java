@@ -38,8 +38,10 @@ public class CustomerVehicleDAOimpl implements CustomerVehicleDAO {
     @Override
     public String getCurrentId() throws SQLException, ClassNotFoundException {
         ResultSet rst = SQLUtil.execute("SELECT Customer_vehicle_id FROM Customer_vehicle ORDER BY customer_vehicle_id DESC LIMIT 1");
-        rst.next();
-        return rst.getString("customervehicle_id");
+        if(rst.next()) {
+            return rst.getString("customer_vehicle_id");
+        }
+        return null;
     }
 
     @Override
@@ -60,5 +62,25 @@ public class CustomerVehicleDAOimpl implements CustomerVehicleDAO {
             return rst.getString("customer_id");
         }
         return null;
+    }
+
+    @Override
+    public List<String> getIds() throws SQLException, ClassNotFoundException {
+        ResultSet resultSet = SQLUtil.execute("SELECT customer_vehicle_id FROM Customer_vehicle");
+        List<String> idList = new ArrayList<>();
+        while (resultSet.next()){
+            idList.add(resultSet.getString("customer_vehicle_id"));
+        }
+        return idList;
+    }
+
+    @Override
+    public List<String> getName() throws SQLException, ClassNotFoundException {
+        ResultSet resultSet = SQLUtil.execute("SELECT customer_id  FROM Customer_vehicle");
+        List<String> idList = new ArrayList<>();
+        while (resultSet.next()){
+            idList.add(resultSet.getString("customer_id"));
+        }
+        return idList;
     }
 }

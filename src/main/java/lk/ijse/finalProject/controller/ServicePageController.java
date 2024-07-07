@@ -52,8 +52,8 @@ public class ServicePageController implements Initializable {
     ServiceBO serviceBO = (ServiceBO) BoFactory.getObject().getbo(BoFactory.BoType.Service);
 
 
-    private void getCurrentServiceId() throws SQLException {
-        String currentId = ServiceRepo.getCurrentId();
+    private void getCurrentServiceId() throws SQLException, ClassNotFoundException {
+        String currentId = serviceBO.getCurrentId();
 
         String nextCustomerId = generateNextCustomerId(currentId);
         txtservicerid.setText(nextCustomerId);

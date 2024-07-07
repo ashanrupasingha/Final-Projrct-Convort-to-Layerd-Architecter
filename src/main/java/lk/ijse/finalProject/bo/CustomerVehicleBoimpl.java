@@ -44,6 +44,16 @@ public class CustomerVehicleBoimpl implements  CustomerVehicleBO{
     }
 
     @Override
+    public List<String> getIds() throws SQLException, ClassNotFoundException {
+        return customervehicleDAO.getIds();
+    }
+
+    @Override
+    public List<String> getName() throws SQLException, ClassNotFoundException {
+        return customervehicleDAO.getName();
+    }
+
+    @Override
     public String getCustomerId(String cusVehiId) throws SQLException, ClassNotFoundException {
         return customervehicleDAO.getCustomerId(cusVehiId);
     }

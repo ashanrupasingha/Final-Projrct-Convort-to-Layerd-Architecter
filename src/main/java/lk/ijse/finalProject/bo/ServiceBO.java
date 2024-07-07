@@ -13,4 +13,5 @@ public interface ServiceBO extends SuperBo{
     public ServiceDTO searchById(String newValue) throws SQLException, ClassNotFoundException ;
     public String getCurrentId() throws SQLException, ClassNotFoundException;
     public List<ServiceDTO> getAll() throws SQLException, ClassNotFoundException;
+    public  List<String> getName() throws SQLException, ClassNotFoundException;
 }

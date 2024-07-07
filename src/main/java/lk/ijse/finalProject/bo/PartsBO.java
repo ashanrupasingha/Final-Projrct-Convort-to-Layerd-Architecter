@@ -13,4 +13,5 @@ public interface PartsBO extends SuperBo{
     public List<PartDTO> getAll() throws SQLException, ClassNotFoundException;
     public String getCurrentId() throws SQLException, ClassNotFoundException;
     public boolean updatePartAfterService(int qty, String partId) throws SQLException, ClassNotFoundException;
+    public List<String> getNames() throws SQLException, ClassNotFoundException;
 }

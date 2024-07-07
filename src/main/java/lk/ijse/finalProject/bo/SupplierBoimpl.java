@@ -47,4 +47,9 @@ public class SupplierBoimpl implements SupplierBO {
         }
         return supplierDTOS;
     }
+
+    @Override
+    public List<String> getSupplierId() throws SQLException, ClassNotFoundException {
+        return supplierDAO.getSupplierId();
+    }
 }

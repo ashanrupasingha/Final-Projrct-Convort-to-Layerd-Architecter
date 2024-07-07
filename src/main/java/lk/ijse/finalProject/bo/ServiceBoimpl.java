@@ -46,4 +46,9 @@ public class ServiceBoimpl implements ServiceBO {
         }
         return serviceDTOS;
     }
+
+    @Override
+    public List<String> getName() throws SQLException, ClassNotFoundException {
+        return serviceDAO.getName();
+    }
 }

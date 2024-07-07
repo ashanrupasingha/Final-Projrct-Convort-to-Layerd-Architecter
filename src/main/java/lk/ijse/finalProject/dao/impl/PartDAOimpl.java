@@ -56,5 +56,15 @@ public class PartDAOimpl implements PartDAO {
     public boolean updatePartAfterService(int qty, String partId) throws SQLException, ClassNotFoundException {
         return SQLUtil.execute("UPDATE Part SET part_qty = part_qty - ? WHERE part_id = ?",qty,partId);
     }
+
+    @Override
+    public List<String> getNames() throws SQLException, ClassNotFoundException {
+        ResultSet resultSet = SQLUtil.execute("SELECT part_name FROM Part");
+        List<String> idList = new ArrayList<>();
+        while (resultSet.next()){
+            idList.add(resultSet.getString("part_name"));
+        }
+        return idList;
+    }
 }
 

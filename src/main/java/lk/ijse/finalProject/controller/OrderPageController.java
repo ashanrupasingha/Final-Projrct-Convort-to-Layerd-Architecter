@@ -58,9 +58,10 @@ public class OrderPageController implements Initializable {
     private JFXComboBox<String> comboCusId;
     @FXML
     private JFXComboBox<String> comboVehicleId;
-    OrderBo orderBoimpl =new OrderBoimpl();
-    CustomerVehicleBO vehicleBO = new CustomerVehicleBoimpl();
-    VehicleBO vehicleBoimpl = (VehicleBO) BoFactory.getObject().getbo(BoFactory.BoType.Order);
+    OrderBo orderBoimpl = (OrderBo) BoFactory.getObject().getbo(BoFactory.BoType.Order);
+   // CustomerVehicleBO vehicleBO = (CustomerVehicleBO) BoFactory.getObject().getbo(BoFactory.BoType.Vehicle);
+    VehicleBO vehicleBoimpl = (VehicleBO) BoFactory.getObject().getbo(BoFactory.BoType.Vehicle);
+    CustomerBo1 customerBo1=new Customer1Boimpl();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -73,10 +74,10 @@ public class OrderPageController implements Initializable {
     private void setComboVehicleId() {
         ObservableList<String> obList = FXCollections.observableArrayList();
         try {
-            List<String> vehicleId = VehicleRepo.getVehicleId();
+            List<String> vehicleId = vehicleBoimpl.getVehicleId();
             obList.addAll(vehicleId);
             comboVehicleId.setItems(obList);
-        } catch (SQLException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
     }
@@ -84,10 +85,10 @@ public class OrderPageController implements Initializable {
     private void setComboCusId() {
         ObservableList<String> obList = FXCollections.observableArrayList();
         try {
-            List<String> id = CustomerRepo.getId();
+            List<String> id = customerBo1.getId();
             obList.addAll(id);
             comboCusId.setItems(obList);
-        } catch (SQLException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
     }

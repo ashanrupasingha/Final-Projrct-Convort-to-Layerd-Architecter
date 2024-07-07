@@ -53,5 +53,10 @@ public class PartsBoimpl implements PartsBO{
     public boolean updatePartAfterService(int qty, String partId) throws SQLException, ClassNotFoundException {
         return partDAO.updatePartAfterService(qty,partId);
     }
+
+    @Override
+    public List<String> getNames() throws SQLException, ClassNotFoundException {
+        return partDAO.getNames();
+    }
 }
 

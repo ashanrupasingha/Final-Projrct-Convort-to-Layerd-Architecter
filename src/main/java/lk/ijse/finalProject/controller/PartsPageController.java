@@ -18,6 +18,7 @@ import lk.ijse.finalProject.Util.TextFeld;
 import lk.ijse.finalProject.bo.BoFactory;
 import lk.ijse.finalProject.bo.PartsBO;
 import lk.ijse.finalProject.bo.PartsBoimpl;
+import lk.ijse.finalProject.bo.SupplierBO;
 import lk.ijse.finalProject.dto.PartDTO;
 import lk.ijse.finalProject.model.Part;
 import lk.ijse.finalProject.model.tm.PartTm;
@@ -47,6 +48,7 @@ public class PartsPageController implements Initializable {
     public TextField txtpartqty1;
     public TableColumn Clmprice1;
     PartsBO partsBO = (PartsBO) BoFactory.getObject().getbo(BoFactory.BoType.Part);
+    SupplierBO supplierBO = (SupplierBO) BoFactory.getObject().getbo(BoFactory.BoType.Supplier);
     @SneakyThrows
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -75,12 +77,12 @@ public class PartsPageController implements Initializable {
     private void setCombo() {
         ObservableList<String> obList = FXCollections.observableArrayList();
         try {
-            List<String> supList = SupplierRepo.getSupplierId();
+            List<String> supList = supplierBO.getSupplierId();
             for (String supplier : supList) {
                 obList.add(supplier);
                 SupplierId.setItems(obList);
             }
-        }catch (RuntimeException | SQLException e){
+        }catch (RuntimeException | SQLException | ClassNotFoundException e){
             new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
         }
     }
@@ -100,10 +102,10 @@ public class PartsPageController implements Initializable {
         int qty = Integer.parseInt(txtpartqty.getText());
         double price = Double.parseDouble(txtpartqty1.getText());
         String supid = String.valueOf(SupplierId.getValue());
-        Part part = new Part(code, name, qty, price, supid);
+        PartDTO part = new PartDTO(code, name, qty, price, supid);
         if (isValied()) {
             try {
-                boolean isSaved = partsRepo.save(part);
+                boolean isSaved = partsBO.savePart(part);
                 if (isSaved) {
                     new Alert(Alert.AlertType.CONFIRMATION, "  Part Saved").show();
                     clearFields();

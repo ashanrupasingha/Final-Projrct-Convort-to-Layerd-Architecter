@@ -81,7 +81,7 @@ public class CustomerRepo2 {
 
         return pstm.executeUpdate() > 0;
     }*/
-    public static List<Customer> getAll() throws SQLException {
+   /* public static List<Customer> getAll() throws SQLException {
         String sql = "SELECT * FROM Customer";
 
         PreparedStatement pstm = Dbconnection.getInstance().getConnection()
@@ -101,7 +101,7 @@ public class CustomerRepo2 {
             cusList.add(customer);
         }
         return cusList;
-    }
+    }*/
 
 
 }

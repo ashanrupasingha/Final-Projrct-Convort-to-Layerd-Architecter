@@ -49,4 +49,14 @@ public class ServiceDAOimpl implements ServiceDAO {
         }
         return parts;
     }
+
+    @Override
+    public List<String> getName() throws SQLException, ClassNotFoundException {
+            ResultSet resultSet = SQLUtil.execute("SELECT service_package FROM Service");
+            List<String> idList = new ArrayList<>();
+            while (resultSet.next()){
+                idList.add(resultSet.getString("service_package"));
+            }
+            return idList;
+    }
 }

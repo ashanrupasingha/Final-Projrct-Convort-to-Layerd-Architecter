@@ -40,10 +40,13 @@ public class CustomerVehicleController implements Initializable {
 
 
     private void getCurrentServiceId() throws SQLException {
-        String currentId = CustomerVehicleRepo.getCurrentId();
-
-        String nextCustomerId = generateNextCustomerId(currentId);
-        txtCustomer_vehicle_id.setText(nextCustomerId);
+        try {
+            String currentId = customervehicleBO.getCurrentId();
+            String nextCustomerId = generateNextCustomerId(currentId);
+            txtCustomer_vehicle_id.setText(nextCustomerId);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     private String generateNextCustomerId(String currentId) {
@@ -67,12 +70,12 @@ public class CustomerVehicleController implements Initializable {
     private void setComboCustomerId() {
         ObservableList<String> obList = FXCollections.observableArrayList();
         try {
-            List<String> ids = CustomerRepo.getId();
+            List<String> ids = customervehicleBO.getIds();
             for (String id : ids){
                 obList.add(id);
             }
             comboCustomerId.setItems(obList);
-        } catch (SQLException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
         }
     }

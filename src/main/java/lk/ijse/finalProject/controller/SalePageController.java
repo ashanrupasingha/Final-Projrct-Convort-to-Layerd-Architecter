@@ -16,6 +16,7 @@ import javafx.scene.layout.AnchorPane;
 import lk.ijse.finalProject.bo.BoFactory;
 import lk.ijse.finalProject.bo.SaleBo;
 import lk.ijse.finalProject.bo.SaleBoimpl;
+import lk.ijse.finalProject.bo.SupplierBO;
 import lk.ijse.finalProject.dto.VehicleDTO;
 import lk.ijse.finalProject.model.Vehicle;
 import lk.ijse.finalProject.model.tm.SaleTm;
@@ -46,6 +47,7 @@ public class SalePageController implements Initializable {
     public TextField txtVehicleQty;
     public TableColumn<?,?> clmQty;
     SaleBo saleBo = (SaleBo) BoFactory.getObject().getbo(BoFactory.BoType.Sale);
+    SupplierBO supplierBO = (SupplierBO) BoFactory.getObject().getbo(BoFactory.BoType.Supplier);
 
     private void getCurrentSaleId() throws SQLException, ClassNotFoundException {
         String currentId = saleBo.getCurrentId();
@@ -82,12 +84,12 @@ public class SalePageController implements Initializable {
     private void setCombo() {
         ObservableList<String> obList = FXCollections.observableArrayList();
         try {
-            List<String> supList = SupplierRepo.getSupplierId();
+            List<String> supList = supplierBO.getSupplierId();
             for (String supplier : supList) {
                 obList.add(supplier);
                 comboSupplierId.setItems(obList);
             }
-        }catch (RuntimeException | SQLException e){
+        }catch (RuntimeException | SQLException | ClassNotFoundException e){
             new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
         }
     }
@@ -108,10 +110,10 @@ public class SalePageController implements Initializable {
         String number = txtvihicletnumber.getText();
         String supplier = comboSupplierId.getValue();
         int qty = Integer.parseInt(txtVehicleQty.getText());
-        Vehicle vehicle = new Vehicle(code, name, number, supplier,qty);
+        VehicleDTO vehicle = new VehicleDTO(code, name, number, supplier,qty);
        if (isValied()) {
             try {
-                boolean isSaved = SaleRepo.save(vehicle);
+                boolean isSaved = saleBo.saveCustomer(vehicle);
                 if (isSaved) {
                     new Alert(Alert.AlertType.CONFIRMATION, "Vehicle saved successfully").show();
                     clearFields();

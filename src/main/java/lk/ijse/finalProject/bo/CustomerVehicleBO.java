@@ -13,7 +13,8 @@ public interface CustomerVehicleBO extends SuperBo{
     public CustomerVehicleDTO searchById(String newValue) throws SQLException, ClassNotFoundException;
     public List<CustomerVehicleDTO> getAll() throws SQLException, ClassNotFoundException;
     public String getCurrentId() throws SQLException, ClassNotFoundException;
-
+    public  List<String> getIds() throws SQLException, ClassNotFoundException;
+    public List<String> getName() throws SQLException, ClassNotFoundException;
     public String getCustomerId(String cusVehiId) throws SQLException, ClassNotFoundException;
 
 }

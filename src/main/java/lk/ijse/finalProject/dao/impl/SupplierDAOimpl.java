@@ -50,4 +50,14 @@ public class SupplierDAOimpl implements SupplierDAO {
         }
         return suppliers;
     }
+
+    @Override
+    public List<String> getSupplierId() throws SQLException, ClassNotFoundException {
+        ResultSet resultSet = SQLUtil.execute("SELECT * FROM Supplier");
+        List<String> idList = new ArrayList<>();
+        while (resultSet.next()){
+            idList.add(resultSet.getString("supplier_id"));
+        }
+        return idList;
+    }
 }

@@ -46,8 +46,10 @@ public class PlaceServiceOrderController implements Initializable {
     private ObservableList<CartTm> obList = FXCollections.observableArrayList();
 
     VehicleDetailBO vehicleDetailBO = (VehicleDetailBO) BoFactory.getObject().getbo(BoFactory.BoType.VehicleDetails);
-    ServicePartBO servicePartBO = (ServicePartBO) BoFactory.getObject().getbo(BoFactory.BoType.Service);
+    ServicePartBO servicePartBO = (ServicePartBO) BoFactory.getObject().getbo(BoFactory.BoType.PartsServiceDetail);
     PartsBO partsBO = (PartsBO) BoFactory.getObject().getbo(BoFactory.BoType.Part);
+    CustomerVehicleBO customervehicleBO = (CustomerVehicleBO) BoFactory.getObject().getbo(BoFactory.BoType.CustomerVehicle);
+    ServiceBO serviceBO = (ServiceBO) BoFactory.getObject().getbo(BoFactory.BoType.Service);
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -68,12 +70,12 @@ public class PlaceServiceOrderController implements Initializable {
     private void setComcoPart() {
         ObservableList<String> obList = FXCollections.observableArrayList();
         try {
-            List<String> names = partsRepo.getNames();
+            List<String> names = partsBO.getNames();
             for (String nameList : names){
                 obList.add(nameList);
             }
             comboPart.setItems(obList);
-        } catch (SQLException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
         }
     }
@@ -81,12 +83,12 @@ public class PlaceServiceOrderController implements Initializable {
     private void setComboCusId() {
         ObservableList<String> obList = FXCollections.observableArrayList();
         try {
-            List<String> id = CustomerVehicleRepo.getIds();
+            List<String> id = customervehicleBO.getIds();
             for (String vehiId : id){
                 obList.add(vehiId);
             }
             comboCustomerVehicleID.setItems(obList);
-        } catch (SQLException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
         }
     }
@@ -94,12 +96,12 @@ public class PlaceServiceOrderController implements Initializable {
     private void setCombo() {
         ObservableList<String> obList = FXCollections.observableArrayList();
         try {
-            List<String> serviceList = ServiceRepo.getName();
+            List<String> serviceList = serviceBO.getName();
             for (String service : serviceList) {
                 obList.add(service);
             }
             comboServicePackage.setItems(obList);
-        } catch (SQLException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
     }

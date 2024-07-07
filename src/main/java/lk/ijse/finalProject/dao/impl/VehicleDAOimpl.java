@@ -4,7 +4,9 @@ import lk.ijse.finalProject.dao.SQLUtil;
 import lk.ijse.finalProject.dao.VehicleDAO;
 import lk.ijse.finalProject.model.Vehicle;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class VehicleDAOimpl implements VehicleDAO {
@@ -61,5 +63,15 @@ public class VehicleDAOimpl implements VehicleDAO {
     @Override
     public boolean updateQty(String vehicleCode, int qty) throws SQLException, ClassNotFoundException {
         return SQLUtil.execute("UPDATE Vehicle SET qty = qty - ? WHERE vehicle_id =?",qty,vehicleCode);
+    }
+
+    @Override
+    public List<String> getVehicleId() throws SQLException, ClassNotFoundException {
+        ResultSet resultSet = SQLUtil.execute("SELECT vehicle_id FROM Vehicle");
+        List<String> idList = new ArrayList<>();
+        while (resultSet.next()){
+            idList.add(resultSet.getString("vehicle_id"));
+        }
+        return idList;
     }
 }
