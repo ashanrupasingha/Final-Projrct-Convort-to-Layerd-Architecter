@@ -13,6 +13,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
+import lk.ijse.finalProject.bo.BoFactory;
 import lk.ijse.finalProject.bo.SaleBo;
 import lk.ijse.finalProject.bo.SaleBoimpl;
 import lk.ijse.finalProject.dto.VehicleDTO;
@@ -44,7 +45,7 @@ public class SalePageController implements Initializable {
     public JFXComboBox<String> comboSupplierId;
     public TextField txtVehicleQty;
     public TableColumn<?,?> clmQty;
-    SaleBo saleBo =new SaleBoimpl();
+    SaleBo saleBo = (SaleBo) BoFactory.getObject().getbo(BoFactory.BoType.Sale);
 
     private void getCurrentSaleId() throws SQLException, ClassNotFoundException {
         String currentId = saleBo.getCurrentId();

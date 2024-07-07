@@ -14,10 +14,10 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import lk.ijse.finalProject.bo.*;
-import lk.ijse.finalProject.bo.impl.*;
+
 import lk.ijse.finalProject.Util.Regex;
 import lk.ijse.finalProject.Util.TextFeld;
-import lk.ijse.finalProject.controller.impl.*;
+
 import lk.ijse.finalProject.db.Dbconnection;
 import lk.ijse.finalProject.dto.OrderDTO;
 import lk.ijse.finalProject.model.Order;
@@ -60,7 +60,7 @@ public class OrderPageController implements Initializable {
     private JFXComboBox<String> comboVehicleId;
     OrderBo orderBoimpl =new OrderBoimpl();
     CustomerVehicleBO vehicleBO = new CustomerVehicleBoimpl();
-    VehicleBO vehicleBoimpl = new VehicleBoimpl();
+    VehicleBO vehicleBoimpl = (VehicleBO) BoFactory.getObject().getbo(BoFactory.BoType.Order);
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

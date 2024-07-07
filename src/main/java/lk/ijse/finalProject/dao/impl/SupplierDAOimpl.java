@@ -13,7 +13,7 @@ public class SupplierDAOimpl implements SupplierDAO {
 
     @Override
     public boolean update(Supplier dto) throws SQLException, ClassNotFoundException {
-        return SQLUtil.execute("UPDATE Supplier SET supplier_id = ?, supplier_name = ?,supplier_contact_number = ? WHERE supplier_id = ?",dto.getSupplier_id(),dto.getSupplier_name(),dto.getSupplier_contact_number());
+        return SQLUtil.execute("UPDATE Supplier SET supplier_id = ?, supplier_name = ?,supplier_contact_number = ? WHERE supplier_id = ?",dto.getSupplier_id(),dto.getSupplier_name(),dto.getSupplier_contact_number(),dto.getSupplier_id());
     }
 
     @Override

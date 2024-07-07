@@ -15,6 +15,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import lk.ijse.finalProject.Util.Regex;
 import lk.ijse.finalProject.Util.TextFeld;
+import lk.ijse.finalProject.bo.BoFactory;
 import lk.ijse.finalProject.bo.PartsBO;
 import lk.ijse.finalProject.bo.PartsBoimpl;
 import lk.ijse.finalProject.dto.PartDTO;
@@ -45,7 +46,7 @@ public class PartsPageController implements Initializable {
     public TableColumn<?,?> ClmTotal;
     public TextField txtpartqty1;
     public TableColumn Clmprice1;
-    PartsBO partsBO =new PartsBoimpl();
+    PartsBO partsBO = (PartsBO) BoFactory.getObject().getbo(BoFactory.BoType.Part);
     @SneakyThrows
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

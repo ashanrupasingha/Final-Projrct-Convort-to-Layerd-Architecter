@@ -11,6 +11,11 @@ import javafx.scene.Cursor;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import lk.ijse.finalProject.bo.BoFactory;
+import lk.ijse.finalProject.bo.PartsBO;
+import lk.ijse.finalProject.bo.ServiceBO;
+import lk.ijse.finalProject.bo.ServicePartBO;
+import lk.ijse.finalProject.dto.ServiceDTO;
 import lk.ijse.finalProject.model.*;
 import lk.ijse.finalProject.model.tm.CartTm;
 import lk.ijse.finalProject.repository.ServiceRepo;
@@ -45,6 +50,8 @@ public class ServicePartOrderController {
     public Label lblPartId;
     private ObservableList<CartTm> obList = FXCollections.observableArrayList();
     private AnchorPane rootnode;
+    ServiceBO serviceBO = (ServiceBO) BoFactory.getObject().getbo(BoFactory.BoType.Service);
+    PartsBO partsBO = (PartsBO) BoFactory.getObject().getbo(BoFactory.BoType.Part);
 
     public void initialize() {
         setDate();
@@ -69,22 +76,22 @@ public class ServicePartOrderController {
     void cmbCustomerOnAction(ActionEvent event) {
         String id = cmbServiceId.getValue();
         try {
-            Service service = ServiceRepo.searchById(id);
+            ServiceDTO service = serviceBO.searchById(id);
 
             lblServicerName.setText(service.getService_package());
 
-        } catch (SQLException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
     }
     private void getCurrentOrderId() {
         try {
-            String currentId = partsRepo.getCurrentId();
+            String currentId = partsBO.getCurrentId();
 
             String nextOrderId = generateNextOrderId(currentId);
             lblPartId.setText(nextOrderId);
 
-        } catch (SQLException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
     }

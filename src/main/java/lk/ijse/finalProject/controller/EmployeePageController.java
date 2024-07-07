@@ -13,6 +13,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
 import lk.ijse.finalProject.Util.Regex;
 import lk.ijse.finalProject.Util.TextFeld;
+import lk.ijse.finalProject.bo.BoFactory;
 import lk.ijse.finalProject.bo.EmployeeBo;
 import lk.ijse.finalProject.bo.EmployeeBoimpl;
 import lk.ijse.finalProject.dto.EmployeeDTO;
@@ -36,7 +37,7 @@ public class EmployeePageController implements  Initializable{
     public TableColumn<?,?> clmemployeeName;
     public TableColumn<?,?> clmemployeeAddress;
     public TableColumn<?,?> clmemployeePhone;
-    EmployeeBo employeeBo =new EmployeeBoimpl();
+    EmployeeBo employeeBo = (EmployeeBo) BoFactory.getObject().getbo(BoFactory.BoType.Employee);
 
 
     private void getCurrentEmployeeId() throws SQLException, ClassNotFoundException {

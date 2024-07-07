@@ -12,6 +12,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
 import lk.ijse.finalProject.Util.Regex;
 import lk.ijse.finalProject.Util.TextFeld;
+import lk.ijse.finalProject.bo.BoFactory;
 import lk.ijse.finalProject.bo.SupplierBO;
 import lk.ijse.finalProject.bo.SupplierBoimpl;
 import lk.ijse.finalProject.dto.SupplierDTO;
@@ -33,7 +34,7 @@ public class SupplierPageController implements Initializable {
     public TableColumn<?,?> clmsupplierId;
     public TableColumn<?,?> clmsuppliernamw;
     public TableColumn<?,?> clmtelephone;
-    SupplierBO supplierBO =new SupplierBoimpl();
+    SupplierBO supplierBO = (SupplierBO) BoFactory.getObject().getbo(BoFactory.BoType.Supplier);
     private void getCurrentSupplierId() throws SQLException {
         String currentId = SupplierRepo.getCurrentId();
 

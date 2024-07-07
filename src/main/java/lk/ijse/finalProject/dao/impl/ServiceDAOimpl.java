@@ -12,7 +12,7 @@ import java.util.List;
 public class ServiceDAOimpl implements ServiceDAO {
     @Override
     public boolean update(Service dto) throws SQLException, ClassNotFoundException {
-        return SQLUtil.execute("UPDATE Service SET service_id = ?, service_package = ?,service_amount = ? WHERE service_id = ?",dto.getService_id(),dto.getService_package(),dto.getService_amount());
+        return SQLUtil.execute("UPDATE Service SET  service_package = ?,service_amount = ? WHERE service_id = ?",dto.getService_package(),dto.getService_amount(),dto.getService_id());
     }
 
     @Override

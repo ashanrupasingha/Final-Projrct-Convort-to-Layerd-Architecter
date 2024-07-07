@@ -5,7 +5,7 @@ import lk.ijse.finalProject.dto.PartDTO;
 import java.sql.SQLException;
 import java.util.List;
 
-public interface PartsBO {
+public interface PartsBO extends SuperBo{
     boolean updatePart(PartDTO partDTO) throws SQLException, ClassNotFoundException;
     boolean savePart(PartDTO partDTO) throws SQLException, ClassNotFoundException;
     boolean deletePart(String id) throws SQLException, ClassNotFoundException;

@@ -14,6 +14,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import lk.ijse.finalProject.Util.Regex;
 import lk.ijse.finalProject.Util.TextFeld;
+import lk.ijse.finalProject.bo.BoFactory;
 import lk.ijse.finalProject.bo.CustomerBO;
 import lk.ijse.finalProject.bo.CustomerBoimpl;
 import lk.ijse.finalProject.dto.CustomerDTO;
@@ -38,7 +39,7 @@ public class CustomerPageController implements Initializable {
     public TableColumn<?,?> clmName;
     public TableColumn<?,?> clmAddress;
     public TableColumn<?,?> clmPhone;
-    CustomerBO customerBO =new CustomerBoimpl();
+    CustomerBO customerBO = (CustomerBO) BoFactory.getObject().getbo(BoFactory.BoType.CUSTOMER);
     private void getCurrentCustomerId() throws SQLException {
         try {
             String currentId = customerBO.getCurrentId();

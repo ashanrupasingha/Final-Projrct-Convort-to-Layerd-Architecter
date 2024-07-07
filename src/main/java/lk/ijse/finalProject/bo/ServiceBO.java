@@ -5,7 +5,7 @@ import lk.ijse.finalProject.dto.ServiceDTO;
 import java.sql.SQLException;
 import java.util.List;
 
-public interface ServiceBO {
+public interface ServiceBO extends SuperBo{
 
     boolean updateCustomer(ServiceDTO service) throws SQLException, ClassNotFoundException;
     boolean saveCustomer(ServiceDTO service) throws SQLException, ClassNotFoundException;

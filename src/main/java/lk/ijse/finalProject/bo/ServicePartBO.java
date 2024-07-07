@@ -5,7 +5,7 @@ import lk.ijse.finalProject.dto.PartsServiceDetailDTO;
 import java.sql.SQLException;
 import java.util.List;
 
-public interface ServicePartBO {
+public interface ServicePartBO extends SuperBo{
     public boolean updateServicePart(PartsServiceDetailDTO dto) throws SQLException, ClassNotFoundException ;
 
     public boolean saveServicePart(PartsServiceDetailDTO dto) throws SQLException, ClassNotFoundException ;

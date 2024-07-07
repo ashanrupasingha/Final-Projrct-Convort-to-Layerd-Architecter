@@ -11,8 +11,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
 import lk.ijse.finalProject.bo.*;
-import lk.ijse.finalProject.bo.impl.*;
-import lk.ijse.finalProject.controller.impl.*;
+
 import lk.ijse.finalProject.db.Dbconnection;
 import lk.ijse.finalProject.Util.Regex;
 import lk.ijse.finalProject.Util.TextFeld;
@@ -45,10 +44,10 @@ public class PlaceServiceOrderController implements Initializable {
     public Label lblNetTotal;
     public JFXButton btnAddToCart;
     private ObservableList<CartTm> obList = FXCollections.observableArrayList();
-    CustomerVehicleBO customerVehicleBO=new CustomerVehicleBoimpl();
-    VehicleDetailBO vehicleDetailBO = new VehicleDetailBOImpl();
-    ServicePartBO servicePartBO = new ServicePartBoimpl();
-    PartsBO partsBO = new PartsBoimpl();
+
+    VehicleDetailBO vehicleDetailBO = (VehicleDetailBO) BoFactory.getObject().getbo(BoFactory.BoType.VehicleDetails);
+    ServicePartBO servicePartBO = (ServicePartBO) BoFactory.getObject().getbo(BoFactory.BoType.Service);
+    PartsBO partsBO = (PartsBO) BoFactory.getObject().getbo(BoFactory.BoType.Part);
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

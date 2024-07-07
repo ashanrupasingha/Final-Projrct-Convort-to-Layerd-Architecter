@@ -12,6 +12,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
+import lk.ijse.finalProject.bo.BoFactory;
 import lk.ijse.finalProject.bo.CustomerVehicleBO;
 import lk.ijse.finalProject.bo.CustomerVehicleBoimpl;
 import lk.ijse.finalProject.dto.CustomerVehicleDTO;
@@ -35,7 +36,7 @@ public class CustomerVehicleController implements Initializable {
     public TableColumn<?,?> clmCustomerID;
     public TableColumn<?,?> clmvehiclenumber;
     public JFXComboBox<String> comboCustomerId;
-    CustomerVehicleBO customervehicleBO =new CustomerVehicleBoimpl();
+    CustomerVehicleBO customervehicleBO = (CustomerVehicleBO) BoFactory.getObject().getbo(BoFactory.BoType.CustomerVehicle);
 
 
     private void getCurrentServiceId() throws SQLException {

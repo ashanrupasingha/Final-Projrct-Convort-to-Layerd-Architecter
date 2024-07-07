@@ -5,7 +5,7 @@ import lk.ijse.finalProject.dto.EmployeeDTO;
 import java.sql.SQLException;
 import java.util.List;
 
-public interface EmployeeBo {
+public interface EmployeeBo extends SuperBo {
     boolean updateCustomer(EmployeeDTO employeeDTO) throws SQLException, ClassNotFoundException;
 
     boolean saveCustomer(EmployeeDTO employeeDTO) throws SQLException, ClassNotFoundException;

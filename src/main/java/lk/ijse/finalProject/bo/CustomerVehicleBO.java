@@ -5,7 +5,7 @@ import lk.ijse.finalProject.dto.CustomerVehicleDTO;
 import java.sql.SQLException;
 import java.util.List;
 
-public interface CustomerVehicleBO {
+public interface CustomerVehicleBO extends SuperBo{
 
     boolean updateCustomer(CustomerVehicleDTO customervehicle) throws SQLException, ClassNotFoundException;
     boolean saveCustomervehicle(CustomerVehicleDTO customervehicle) throws SQLException, ClassNotFoundException;

@@ -13,6 +13,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
+import lk.ijse.finalProject.bo.BoFactory;
 import lk.ijse.finalProject.db.Dbconnection;
 import lk.ijse.finalProject.Util.Regex;
 import lk.ijse.finalProject.Util.TextFeld;
@@ -48,7 +49,7 @@ public class ServicePageController implements Initializable {
     public TableColumn<?,?> clmserviceamount;
     public TableView tblServiceView;
     public AnchorPane rootNode;
-    ServiceBO serviceBO =new ServiceBoimpl();
+    ServiceBO serviceBO = (ServiceBO) BoFactory.getObject().getbo(BoFactory.BoType.Service);
 
 
     private void getCurrentServiceId() throws SQLException {

@@ -13,7 +13,7 @@ public class SaleDAOimpl implements SaleDAO {
 
     @Override
     public boolean update(Vehicle customer) throws SQLException, ClassNotFoundException {
-        return SQLUtil.execute("UPDATE Vehicle SET vehicle_id = ?, vehicle_model= ?,vehicle_number = ?,supplier_id = ?,qty = ? WHERE vehicle_id = ?",customer.getVehicle_id(),customer.getVehicle_model(),customer.getVehicle_number(),customer.getSupplier_id(),customer.getQty());
+        return SQLUtil.execute("UPDATE Vehicle SET  vehicle_model= ?,vehicle_number = ?,supplier_id = ?,qty = ? WHERE vehicle_id = ?",customer.getVehicle_model(),customer.getVehicle_number(),customer.getSupplier_id(),customer.getQty(),customer.getVehicle_id());
     }
 
     @Override
@@ -30,7 +30,7 @@ public class SaleDAOimpl implements SaleDAO {
     public Vehicle searchById(String newValue) throws SQLException, ClassNotFoundException {
         ResultSet rst =SQLUtil.execute("SELECT * FROM  Vehicle WHERE vehicle_id = ?",newValue + "" );
         rst.next();
-        Vehicle vehicle =new Vehicle(newValue + "" ,rst.getString("vehicle_model"),rst.getString("vehicle_number"),rst.getString("supplier_id "),rst.getInt("qty"));
+        Vehicle vehicle =new Vehicle(newValue + "" ,rst.getString("vehicle_model"),rst.getString("vehicle_number"),rst.getString("supplier_id"),rst.getInt("qty"));
         return vehicle;
     }
 
