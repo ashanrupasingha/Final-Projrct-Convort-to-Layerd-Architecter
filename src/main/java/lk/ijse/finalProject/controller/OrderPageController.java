@@ -13,11 +13,13 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
-import lk.ijse.finalProject.controller.Util.Regex;
-import lk.ijse.finalProject.controller.Util.TextFeld;
-import lk.ijse.finalProject.controller.impl.OrderBo;
-import lk.ijse.finalProject.controller.impl.OrderBoimpl;
-import lk.ijse.finalProject.model.DTO.OrderDTO;
+import lk.ijse.finalProject.bo.*;
+import lk.ijse.finalProject.bo.impl.*;
+import lk.ijse.finalProject.Util.Regex;
+import lk.ijse.finalProject.Util.TextFeld;
+import lk.ijse.finalProject.controller.impl.*;
+import lk.ijse.finalProject.db.Dbconnection;
+import lk.ijse.finalProject.dto.OrderDTO;
 import lk.ijse.finalProject.model.Order;
 import lk.ijse.finalProject.model.PlaceOrder;
 import lk.ijse.finalProject.model.tm.orderTm;
@@ -25,6 +27,7 @@ import lk.ijse.finalProject.repository.CustomerRepo;
 import lk.ijse.finalProject.repository.VehicleRepo;
 
 import java.net.URL;
+import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -56,6 +59,8 @@ public class OrderPageController implements Initializable {
     @FXML
     private JFXComboBox<String> comboVehicleId;
     OrderBo orderBoimpl =new OrderBoimpl();
+    CustomerVehicleBO vehicleBO = new CustomerVehicleBoimpl();
+    VehicleBO vehicleBoimpl = new VehicleBoimpl();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -184,7 +189,7 @@ public class OrderPageController implements Initializable {
     }
 
     @FXML
-    private void saveAction(ActionEvent actionEvent) {
+    private void saveAction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
         String code = txtOrderid.getText();
         String name = txtorderdiscription.getText();
         String customerCode = comboCusId.getValue();
@@ -193,13 +198,38 @@ public class OrderPageController implements Initializable {
 
         var order = new Order(code, name, customerCode, qty, vehicleCode);
         PlaceOrder po = new PlaceOrder(order);
-        // boolean isSaved = PlaceOrderRepo.placeOrder(po);
-        boolean isSaved=true;
+        boolean isSaved = orderBoimpl.saveCustomer(new OrderDTO(code,name,customerCode,qty, vehicleCode));
         if (isSaved) {
             setTable();
             new Alert(Alert.AlertType.CONFIRMATION, "Order placed successfully").show();
         } else {
             new Alert(Alert.AlertType.ERROR, "Order placement unsuccessful").show();
+        }
+        Connection connection = Dbconnection.getInstance().getConnection();
+        connection.setAutoCommit(false);
+
+        try {
+            boolean isSave = orderBoimpl.saveCustomer(new OrderDTO(code, name, customerCode, qty, vehicleCode));
+            if (!isSave) {
+                connection.rollback();
+                connection.setAutoCommit(true);
+                new Alert(Alert.AlertType.ERROR,"Order placed unsuccessfully").show();
+                return;
+                }
+            System.out.println("isSAved");
+            boolean isUpdated = vehicleBoimpl.updateAfterServicedQty(vehicleCode,qty);
+            if (!isUpdated) {
+                connection.rollback();
+                connection.setAutoCommit(true);
+                new Alert(Alert.AlertType.ERROR,"Placed order unsuccessfully").show();
+                return ;
+            }
+            connection.commit();
+            connection.setAutoCommit(true);
+            new Alert(Alert.AlertType.CONFIRMATION,"Placed order successfully").show();
+        }catch (Exception e){
+            connection.rollback();
+            new Alert(Alert.AlertType.ERROR,e.getMessage());
         }
     }
 

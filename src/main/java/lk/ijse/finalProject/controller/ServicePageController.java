@@ -1,14 +1,11 @@
 package lk.ijse.finalProject.controller;
 
 
-import animatefx.animation.Pulse;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -16,21 +13,13 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
-import lk.ijse.finalProject.DB.Dbconnection;
-import lk.ijse.finalProject.controller.Util.Regex;
-import lk.ijse.finalProject.controller.Util.TextFeld;
-import lk.ijse.finalProject.controller.impl.SaleBo;
-import lk.ijse.finalProject.controller.impl.SaleBoimpl;
-import lk.ijse.finalProject.controller.impl.ServiceBO;
-import lk.ijse.finalProject.controller.impl.ServiceBoimpl;
-import lk.ijse.finalProject.dao.impl.ServiceDAO;
-import lk.ijse.finalProject.model.Customer;
-import lk.ijse.finalProject.model.DTO.ServiceDTO;
-import lk.ijse.finalProject.model.Service;
-import lk.ijse.finalProject.model.tm.CustomerTm;
+import lk.ijse.finalProject.db.Dbconnection;
+import lk.ijse.finalProject.Util.Regex;
+import lk.ijse.finalProject.Util.TextFeld;
+import lk.ijse.finalProject.bo.ServiceBO;
+import lk.ijse.finalProject.bo.ServiceBoimpl;
+import lk.ijse.finalProject.dto.ServiceDTO;
 import lk.ijse.finalProject.model.tm.ServiceTm;
-import lk.ijse.finalProject.repository.CustomerRepo2;
 import lk.ijse.finalProject.repository.ServiceRepo;
 import lombok.SneakyThrows;
 import net.sf.jasperreports.engine.*;
@@ -199,7 +188,7 @@ public class ServicePageController implements Initializable {
         AnchorPane rootnode = FXMLLoader.load(this.getClass().getResource("/view/service_part_order.fxml"));
         rootNode.getChildren().clear();
         this.rootNode.getChildren().add(rootnode);
-        new Pulse(rootNode).play();
+
 
     }
 

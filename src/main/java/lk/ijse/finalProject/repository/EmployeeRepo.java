@@ -1,7 +1,6 @@
 package lk.ijse.finalProject.repository;
 
-import lk.ijse.finalProject.DB.Dbconnection;
-import lk.ijse.finalProject.model.Customer;
+import lk.ijse.finalProject.db.Dbconnection;
 import lk.ijse.finalProject.model.Employee;
 
 import java.sql.Connection;

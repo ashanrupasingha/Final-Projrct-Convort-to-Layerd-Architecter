@@ -12,15 +12,14 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
-import lk.ijse.finalProject.controller.Util.Regex;
-import lk.ijse.finalProject.controller.Util.TextFeld;
-import lk.ijse.finalProject.controller.impl.CustomerBO;
-import lk.ijse.finalProject.controller.impl.CustomerBoimpl;
-import lk.ijse.finalProject.model.Customer;
-import lk.ijse.finalProject.model.DTO.CustomerDTO;
+import lk.ijse.finalProject.Util.Regex;
+import lk.ijse.finalProject.Util.TextFeld;
+import lk.ijse.finalProject.bo.CustomerBO;
+import lk.ijse.finalProject.bo.CustomerBoimpl;
+import lk.ijse.finalProject.dto.CustomerDTO;
 import lk.ijse.finalProject.model.tm.CustomerTm;
-import lk.ijse.finalProject.repository.CustomerRepo2;
 import lombok.SneakyThrows;
+
 
 import java.net.URL;
 import java.sql.SQLException;
@@ -39,11 +38,8 @@ public class CustomerPageController implements Initializable {
     public TableColumn<?,?> clmName;
     public TableColumn<?,?> clmAddress;
     public TableColumn<?,?> clmPhone;
-    CustomerBO customerBO = new CustomerBoimpl();
-
-
+    CustomerBO customerBO =new CustomerBoimpl();
     private void getCurrentCustomerId() throws SQLException {
-
         try {
             String currentId = customerBO.getCurrentId();
             String nextCustomerId = generateNextCustomerId(currentId);

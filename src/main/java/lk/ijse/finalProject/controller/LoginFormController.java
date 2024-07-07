@@ -1,24 +1,22 @@
 package lk.ijse.finalProject.controller;
 
 //import animatefx.animation.FadeIn;
-import animatefx.animation.FadeIn;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
-import lk.ijse.finalProject.DB.Dbconnection;
+import lk.ijse.finalProject.db.Dbconnection;
 
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Map;
 
 public class LoginFormController {
     public TextField txtusername;
@@ -63,7 +61,7 @@ public class LoginFormController {
         stage.setScene(scene);
         stage.setTitle("Home Page");
         stage.centerOnScreen();
-        new FadeIn(rootNode).play();
+      //  new FadeIn(rootNode).play();
     }
 
 

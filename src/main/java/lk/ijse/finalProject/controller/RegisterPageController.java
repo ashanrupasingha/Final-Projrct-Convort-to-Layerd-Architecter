@@ -8,10 +8,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import lk.ijse.finalProject.DB.Dbconnection;
-import lk.ijse.finalProject.controller.Util.Regex;
-import lk.ijse.finalProject.controller.Util.TextFeld;
-import lk.ijse.finalProject.model.Customer;
+import lk.ijse.finalProject.Util.Regex;
+import lk.ijse.finalProject.Util.TextFeld;
 import lk.ijse.finalProject.repository.CustomerRepo;
 
 import java.io.IOException;

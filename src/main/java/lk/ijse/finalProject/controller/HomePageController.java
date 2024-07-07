@@ -1,7 +1,7 @@
 package lk.ijse.finalProject.controller;
 
 
-import animatefx.animation.Pulse;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -95,7 +95,7 @@ public class HomePageController implements Initializable {
         AnchorPane rootnode = FXMLLoader.load(this.getClass().getResource("/view/salePage.fxml"));
         rootNode.getChildren().clear();
         this.rootNode.getChildren().add(rootnode);
-        new Pulse(rootNode).play();
+       // new Pulse(rootNode).play();
 
     }
 
@@ -103,7 +103,7 @@ public class HomePageController implements Initializable {
         AnchorPane rootnode = FXMLLoader.load(this.getClass().getResource("/view/settingPage.fxml"));
         rootNode.getChildren().clear();
         this.rootNode.getChildren().add(rootnode);
-        new Pulse(rootNode).play();
+      //  new Pulse(rootNode).play();
 
     }
 
@@ -113,14 +113,14 @@ public class HomePageController implements Initializable {
         AnchorPane rootnode = FXMLLoader.load(this.getClass().getResource("/view/servicePage.fxml"));
         rootNode.getChildren().clear();
         this.rootNode.getChildren().add(rootnode);
-        new Pulse(rootNode).play();
+     //   new Pulse(rootNode).play();
     }
 
     public void btnPartspageOnAction(ActionEvent actionEvent) throws IOException {
         AnchorPane rootnode = FXMLLoader.load(this.getClass().getResource("/view/PartsPage.fxml"));
         rootNode.getChildren().clear();
         this.rootNode.getChildren().add(rootnode);
-        new Pulse(rootNode).play();
+      //  new Pulse(rootNode).play();
 
     }
 
@@ -129,7 +129,7 @@ public class HomePageController implements Initializable {
         AnchorPane rootnode = FXMLLoader.load(this.getClass().getResource("/view/CustomerForm.fxml"));
         rootNode.getChildren().clear();
         this.rootNode.getChildren().add(rootnode);
-        new Pulse(rootNode).play();
+    //    new Pulse(rootNode).play();
     }
 
     public void btnDashbordAction(ActionEvent actionEvent) throws IOException {
@@ -144,14 +144,14 @@ public class HomePageController implements Initializable {
         AnchorPane rootnode = FXMLLoader.load(this.getClass().getResource("/view/EmployeeForm.fxml"));
         rootNode.getChildren().clear();
         this.rootNode.getChildren().add(rootnode);
-        new Pulse(rootNode).play();
+      //  new Pulse(rootNode).play();
     }
 
     public void SupplierAction(ActionEvent actionEvent) throws IOException {
         AnchorPane rootnode = FXMLLoader.load(this.getClass().getResource("/view/SupplierForm.fxml"));
         rootNode.getChildren().clear();
         this.rootNode.getChildren().add(rootnode);
-        new Pulse(rootNode).play();
+     //   new Pulse(rootNode).play();
     }
 
     @Override
@@ -185,7 +185,7 @@ public class HomePageController implements Initializable {
         AnchorPane rootNodE = FXMLLoader.load(this.getClass().getResource("/view/orderForm.fxml"));
         rootNode.getChildren().clear();
         this.rootNode.getChildren().add(rootNodE);
-        new Pulse(rootNode).play();
+    //    new Pulse(rootNode).play();
     }
 
     public void PlaceServiceAction(ActionEvent actionEvent) throws IOException {

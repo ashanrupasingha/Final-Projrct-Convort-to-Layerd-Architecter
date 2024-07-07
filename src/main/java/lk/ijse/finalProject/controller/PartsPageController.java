@@ -1,6 +1,5 @@
 package lk.ijse.finalProject.controller;
 
-import com.jfoenix.controls.JFXAlert;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import javafx.collections.FXCollections;
@@ -14,20 +13,13 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
-import lk.ijse.finalProject.controller.Util.Regex;
-import lk.ijse.finalProject.controller.Util.TextFeld;
-import lk.ijse.finalProject.controller.impl.OrderBo;
-import lk.ijse.finalProject.controller.impl.OrderBoimpl;
-import lk.ijse.finalProject.controller.impl.PartsBO;
-import lk.ijse.finalProject.controller.impl.PartsBoimpl;
-import lk.ijse.finalProject.model.Customer;
-import lk.ijse.finalProject.model.DTO.PartDTO;
+import lk.ijse.finalProject.Util.Regex;
+import lk.ijse.finalProject.Util.TextFeld;
+import lk.ijse.finalProject.bo.PartsBO;
+import lk.ijse.finalProject.bo.PartsBoimpl;
+import lk.ijse.finalProject.dto.PartDTO;
 import lk.ijse.finalProject.model.Part;
-import lk.ijse.finalProject.model.Supplier;
-import lk.ijse.finalProject.model.tm.CustomerTm;
 import lk.ijse.finalProject.model.tm.PartTm;
-import lk.ijse.finalProject.model.tm.SupplierTm;
-import lk.ijse.finalProject.repository.CustomerRepo2;
 import lk.ijse.finalProject.repository.SupplierRepo;
 import lk.ijse.finalProject.repository.partsRepo;
 import lombok.SneakyThrows;
@@ -135,7 +127,7 @@ public class PartsPageController implements Initializable {
         PartDTO part = new PartDTO(code, name, qty, price, supid);
         if (isValied()) {
             try {
-                boolean isUpdate = partsBO.updateCustomer(part);
+                boolean isUpdate = partsBO.updatePart(part);
                 if (isUpdate) {
                     clearFields();
                     setTable();
@@ -176,7 +168,7 @@ public class PartsPageController implements Initializable {
 
         String id = txtpartid.getText();
         try {
-            boolean isDeleted = partsBO.deleteCustomer(id);
+            boolean isDeleted = partsBO.deletePart(id);
             if (isDeleted){
                 new Alert(Alert.AlertType.CONFIRMATION,"Customer delete successfully").show();
                 clearFields();

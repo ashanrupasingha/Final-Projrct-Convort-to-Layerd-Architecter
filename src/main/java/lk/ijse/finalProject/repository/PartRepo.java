@@ -1,6 +1,6 @@
 package lk.ijse.finalProject.repository;
 
-import lk.ijse.finalProject.DB.Dbconnection;
+import lk.ijse.finalProject.db.Dbconnection;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

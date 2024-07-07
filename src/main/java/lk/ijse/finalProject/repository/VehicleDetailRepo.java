@@ -1,6 +1,6 @@
 package lk.ijse.finalProject.repository;
 
-import lk.ijse.finalProject.DB.Dbconnection;
+import lk.ijse.finalProject.db.Dbconnection;
 import lk.ijse.finalProject.model.VehicleDetails;
 
 import java.sql.PreparedStatement;

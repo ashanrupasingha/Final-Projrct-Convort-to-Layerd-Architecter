@@ -1,6 +1,6 @@
 package lk.ijse.finalProject.dao;
 
-import lk.ijse.finalProject.DB.Dbconnection;
+import lk.ijse.finalProject.db.Dbconnection;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

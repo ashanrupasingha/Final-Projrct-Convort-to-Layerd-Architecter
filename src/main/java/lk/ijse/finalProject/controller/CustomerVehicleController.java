@@ -12,10 +12,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
-import lk.ijse.finalProject.controller.impl.CustomerVehicleBO;
-import lk.ijse.finalProject.controller.impl.CustomerVehicleBoimpl;
-import lk.ijse.finalProject.model.CustomerVehicle;
-import lk.ijse.finalProject.model.DTO.CustomerVehicleDTO;
+import lk.ijse.finalProject.bo.CustomerVehicleBO;
+import lk.ijse.finalProject.bo.CustomerVehicleBoimpl;
+import lk.ijse.finalProject.dto.CustomerVehicleDTO;
 import lk.ijse.finalProject.model.tm.CustomerVehicleTm;
 import lk.ijse.finalProject.repository.CustomerRepo;
 import lk.ijse.finalProject.repository.CustomerVehicleRepo;
@@ -82,10 +81,10 @@ public class CustomerVehicleController implements Initializable {
         String servicepackage = comboCustomerId.getValue();
         String serviceamount = txtVehicleNumber.getText();
 
-        CustomerVehicle customerVehicle = new CustomerVehicle(code, servicepackage, serviceamount);
+        CustomerVehicleDTO customerVehicle = new CustomerVehicleDTO(code, servicepackage, serviceamount);
         if (isValied()) {
             try {
-                boolean isSaved = customervehicleBO.saveCustomer(customerVehicle);
+                boolean isSaved = customervehicleBO.saveCustomervehicle(customerVehicle);
                 if (isSaved) {
                     new Alert(Alert.AlertType.CONFIRMATION, "Service saved successfully").show();
                     clearFields();
@@ -113,10 +112,9 @@ public class CustomerVehicleController implements Initializable {
         String servicepackage = comboCustomerId.getValue();
         String serviceamount = txtVehicleNumber.getText();
 
-        CustomerVehicle customerVehicle = new CustomerVehicle(code, servicepackage, serviceamount);
         if (isValied()) {
             try {
-                boolean isUpdate = customervehicleBO.updateCustomer(customerVehicle);
+                boolean isUpdate = customervehicleBO.updateCustomer(new CustomerVehicleDTO(code,servicepackage,serviceamount));
                 if (isUpdate) {
                     clearFields();
                     setTable();

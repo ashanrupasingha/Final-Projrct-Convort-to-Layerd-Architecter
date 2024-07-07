@@ -10,15 +10,19 @@ import javafx.scene.Cursor;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
-import lk.ijse.finalProject.controller.Util.Regex;
-import lk.ijse.finalProject.controller.Util.TextFeld;
-import lk.ijse.finalProject.model.PartsServiceDetail;
-import lk.ijse.finalProject.model.PlaceService;
-import lk.ijse.finalProject.model.VehicleDetails;
+import lk.ijse.finalProject.bo.*;
+import lk.ijse.finalProject.bo.impl.*;
+import lk.ijse.finalProject.controller.impl.*;
+import lk.ijse.finalProject.db.Dbconnection;
+import lk.ijse.finalProject.Util.Regex;
+import lk.ijse.finalProject.Util.TextFeld;
+import lk.ijse.finalProject.dto.PartsServiceDetailDTO;
+import lk.ijse.finalProject.dto.VehicleDetailsDTO;
 import lk.ijse.finalProject.model.tm.CartTm;
 import lk.ijse.finalProject.repository.*;
 
 import java.net.URL;
+import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
@@ -41,6 +45,10 @@ public class PlaceServiceOrderController implements Initializable {
     public Label lblNetTotal;
     public JFXButton btnAddToCart;
     private ObservableList<CartTm> obList = FXCollections.observableArrayList();
+    CustomerVehicleBO customerVehicleBO=new CustomerVehicleBoimpl();
+    VehicleDetailBO vehicleDetailBO = new VehicleDetailBOImpl();
+    ServicePartBO servicePartBO = new ServicePartBoimpl();
+    PartsBO partsBO = new PartsBoimpl();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -164,18 +172,54 @@ if (isValied()) {
             String cusVehiId = comboCustomerVehicleID.getValue();
             String serviceId = ServiceRepo.getPackageId(packageName);
             String part_id = PartRepo.getItemId(part);
-            VehicleDetails details = new VehicleDetails(serviceId, cusVehiId);
-            PartsServiceDetail partsServiceDetail = new PartsServiceDetail(serviceId, part_id);
-            PlaceService ps = new PlaceService(details, partsServiceDetail, qty);
 
-            boolean isSaved = PlaceServiceRepo.saveDetails(ps);
+            /*String cusId = customerVehicleBO.getCustomerId(cusVehiId);*/
+
+            /*boolean isSaved = PlaceServiceRepo.saveDetails(ps);
             if (isSaved) {
                 new Alert(Alert.AlertType.CONFIRMATION, "Service placed successfully").show();
             } else {
                 new Alert(Alert.AlertType.ERROR, "Service placed unsuccessfully").show();
+            }*/
+            Connection connection = Dbconnection.getInstance().getConnection();
+            connection.setAutoCommit(false);
+            try {
+                System.out.println("Invoke first one");
+                boolean isSaved = vehicleDetailBO.saveVehicleDetail(new VehicleDetailsDTO(serviceId,cusVehiId));
+                if (!isSaved) {
+                    connection.rollback();
+                    connection.setAutoCommit(true);
+                    new Alert(Alert.AlertType.ERROR,"Serviced placed unsuccessfully").show();
+                    return;
+                }
+                    System.out.println("Invoke second one");
+                System.out.println(part_id+" ,"+serviceId);
+                    boolean saved = servicePartBO.saveServicePart(new PartsServiceDetailDTO(serviceId,part_id));
+                    if (!saved) {
+                        connection.rollback();
+                        connection.setAutoCommit(true);
+                        new Alert(Alert.AlertType.ERROR,"Serviced placed unsuccessfully").show();
+                        return;
+                    }
+                        System.out.println("Invoke third one");
+                        boolean isUpdated = partsBO.updatePartAfterService(qty,part_id);
+                        if (!isUpdated) {
+                            connection.rollback();
+                            connection.setAutoCommit(true);
+                            new Alert(Alert.AlertType.ERROR,"Serviced placed unsuccessfully").show();
+                            return;
+                        }
+                            System.out.println("commited");
+                            connection.commit();
+                            new Alert(Alert.AlertType.CONFIRMATION,"Serviced placed successfully").show();
+
+            } catch (Exception e){
+                connection.rollback();
+                connection.setAutoCommit(false);
+                new Alert(Alert.AlertType.ERROR,"Serviced placed unsuccessfully").show();
             }
         }
-        }
+    }
         public void txtReleased (KeyEvent keyEvent){
             Regex.setPlaceServiceOrderTextColor(TextFeld.txtpartqty, txtpartqty);
         }

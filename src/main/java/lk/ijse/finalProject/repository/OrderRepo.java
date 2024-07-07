@@ -1,8 +1,7 @@
 package lk.ijse.finalProject.repository;
 
-import lk.ijse.finalProject.DB.Dbconnection;
+import lk.ijse.finalProject.db.Dbconnection;
 import lk.ijse.finalProject.model.Order;
-import lk.ijse.finalProject.model.Vehicle;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
